@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    {{include file="layout/header.html"}}
+    <body>
+        {{include file="layout/bodytop.html"}}
+        <div class="mainout items">
+            <div class="main">
+                {{if $main}}{{include file=$main}}{{/if}}
+            </div>
+            {{include file="layout/sidebar.html"}}
+        </div>
+        {{include file="layout/footer.html"}}
+    </body>
+</html>
+
+

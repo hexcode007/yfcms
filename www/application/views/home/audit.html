@@ -1,0 +1,19 @@
+<div class="zuobi">
+    <a href="#">云扫除</a> > <a href="#">会员中心</a></span>
+</div>
+
+
+<!----------member---------->
+<div class="member">
+    <div class="member_left">
+        {{include file="modules/home_top.html"}}
+        <div class="member_left_jd">
+            <ul>
+                {{foreach from=$my_article_list item=al}}
+                <li><em>{{$al.createTime|date_format:"%Y-%m-%d %H:%M:%S"}}</em> 在 <a href="/home/article/">老生常谈</a> 投稿了 <a href="/article/{{$al.id}}.html">{{$al.title}}</a><span>{{if $al.isAudit==1}}审核通过{{elseif $al.isAudit==2}}审核未通过{{else}}未审核{{/if}}</span></li>
+                {{/foreach}}
+            </ul>
+        </div>
+    </div>
+    {{include file="modules/home_ad.html"}}
+</div>

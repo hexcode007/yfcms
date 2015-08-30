@@ -1,0 +1,18 @@
+<div class="member_left_top">
+    <ul>
+        <li class="tx"><a href="#"><img src="{{$home_info['photo']}}"></a> <br><a href="/home/head/">上传头像</a>&nbsp; | &nbsp;<a href="/home/info/">编辑资料</a></li>
+        <li class="hy"><span>{{if $member_info['truename']}}{{$member_info['truename']}}{{else}}{{$member_info['username']}}{{/if}}</span>，您好。欢迎您来到云扫除，{{if $member_info['lastTime']}}您上次登录时间是{{$member_info['lastTime']}}{{/if}}</li>
+        <li class="xxx"><span><b>{{$home_info['report_num']}}</b> 条<br>举报网址</span> <span><b>{{$home_info['article_num']}}</b> 篇<br>投稿文章</span> <span><b>{{$home_info['pushfile_num']}}</b> 次<br>数据分析</span> <span><b>{{$home_info['score_num']}}</b> 分<br>积分统计</span></li>
+        <li class="lxx"><span><a href="#">点此复制地址</a></span>下线地址：http://www.yunsaochu.com/track/c/?rid=1008</li>
+    </ul>
+</div>
+<div class="member_left_class">
+    <ul>
+        <li class="sz"><a href="/home/"><img src="{{$static_url}}images/001.png"></a> <br><a href="/home/">{{if $home_channel=='index'}}<strong>我的动态</strong>{{else}}我的动态{{/if}}</a></li>
+        <li class="sz"><a href="/home/tg/"><img src="{{$static_url}}images/002.png"></a> <br><a href="/home/tg/">{{if $home_channel=='tg'}}<strong>投稿文章</strong>{{else}}投稿文章{{/if}}</a></li>
+        <li class="sz"><a href="/home/info/"><img src="{{$static_url}}images/003.png"></a> <br><a href="/home/info/">{{if $home_channel=='info'}}<strong>设置资料</strong>{{else}}设置资料{{/if}}</a></li>
+        <li class="sz"><a href="/home/audit/"><img src="{{$static_url}}images/004.png"></a> <br><a href="/home/audit/">{{if $home_channel=='audit'}}<strong>审核进度</strong>{{else}}审核进度{{/if}}</a></li>
+        <li class="sz"><a href="/home/report/"><img src="{{$static_url}}images/005.png"></a> <br><a href="/home/report/">{{if $home_channel=='report'}}<strong>举报网站</strong>{{else}}举报网站{{/if}}</a></li>
+        <li class="sz"><a href="/home/head/"><img src="{{$static_url}}images/006.png"></a> <br><a href="/home/head/">{{if $home_channel=='head'}}<strong>上传头像</strong>{{else}}上传头像{{/if}}</a></li>
+    </ul>
+</div>

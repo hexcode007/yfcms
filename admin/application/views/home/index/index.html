@@ -1,0 +1,22 @@
+{{$userinfo['crm_user_id']}}
+{{$userinfo['crm_user_accname']}}
+{{$userinfo['crm_user_name']}}
+{{$userinfo['crm_user_tel']}}
+{{$userinfo['city_id']}}
+{{$userinfo['district_id']}}
+{{$userinfo['hot_area_id']}}
+{{$userinfo['team_id']}}
+{{$userinfo['role_id']}}
+<dl>
+    {{if $menus}} 
+    {{foreach from=$menus item=m}}
+    <dt>{{$m.menu_name}}</dt>
+    {{if $m.moudels}}
+    {{foreach from=$m.moudels item=d}}
+    <dd>{{$d.moudel_name}}</dd>
+    {{/foreach}}
+    {{/if}}
+    {{/foreach}}
+    {{/if}}
+</dl>
+<a href="javascript:;" onclick="return loginout();">ע��</a>

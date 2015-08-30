@@ -1,0 +1,73 @@
+<div class="maininner">
+    <div class="search_formwrap">
+        <h5 class="maintt clearfix"> <s></s> <strong> 数据总览 </strong></h5>
+    </div>
+    <div class="search_formwrap">
+        <table class="search_form">
+            <form method="get" id="form_company" name=""  action="{{$cur_url}}" >
+                <tr>
+                    <td width=180>
+                        产品大类:
+                        <select  class="form-control input-sm" name="productCatId" id="productCat" onchange="changeProductCat2()"> 
+                        <option value=''>--请选择所属行业--</option> 
+                        </select>
+                    </td>
+                    <td width=200>
+                        <select  class="form-control input-sm" name="productCatId2" id="productCat2"> 
+                        <option value=''>--请选择产品分类--</option> 
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn btn-default btn-sm" type="submit" >筛选</button>
+                        <a class="widthm vm" onclick="clear_all()">清空</a>
+                    </td>
+                    <td colspan=4></td>
+                </tr>
+            </form>
+
+        </table>
+    </div>
+    
+    <table class="table table-striped table-hover ">
+        <tr>
+            <th style="width:150px">Url</th>
+            <th style="width:60px">出价</th>
+            <th style="width:60px">展现次数</th>
+            <th style="min-width:60px">点击次数</th>
+            <th style="min-width:60px">平均价格</th>
+            <th style="min-width:60px">千次成本</th>
+            <th style="min-width:80px">总费用</th>
+            <th style="min-width:60px">平均访问时长</th>
+            <th style="min-width:60px">直接转化</th>
+            <th style="min-width:60px">间接转化</th>
+            <th style="width:150px">分类</th>
+            <th style="min-width:120px">分析时间</th>
+            <th style="min-width:50px">得分</th>
+        </tr>
+        {{foreach item=dl from=$domain_list key=domain_id}}
+        <tr push_id="{{$dl.id}}">
+            <td align="left">{{$dl.siteUrl}}</td>
+            <td align="center">{{$dl.price}}</td>
+            <td align="center">{{$dl.srchs}}</td>
+            <td align="center">{{$dl.clks}}</td>
+            <td align="center">{{$dl.ctr}}</td>
+            <td align="center">{{$dl.acp}}</td>
+            <td align="center">{{$dl.cpm}}</td>
+            <td align="center">{{$dl.resTimeStr}}</td>
+            <td align="center">{{$dl.transfer}}</td>
+            <td align="center">{{$dl.transfer2}}</td>
+            <td align="center">{{$product_cat2[$dl.productCatId]}}---{{$product_cat2[$dl.productCatId2]}}</td>
+            <td align="center">{{$dl.analyzeTime|date_format:"%Y/%m/%d %H:%M"}}</td>
+            <td align="center">{{$dl.avgScore}}</td>
+        </tr>
+        {{/foreach}}
+    </table>
+   
+    {{$page}}
+
+</div>
+
+<script>
+    var catstr = {{$product_cat}};
+    setProductCat(catstr,'#productCat',{{$params.productCatId|default:0}},'#productCat2',{{$params.productCatId2|default:0}});   
+</script>

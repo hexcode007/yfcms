@@ -1,0 +1,22 @@
+<div class="zuobi">
+    <a href="/">云扫除</a> > <a href="/home/">会员中心</a></span>
+</div>
+
+
+<!----------member---------->
+<div class="member">
+    <div class="member_left">
+        {{include file="modules/home_top.html"}}
+        <div class="member_left_tg">
+             <form action="/home/headSave/" method="post" onsubmit="" id="form_info" form_tittle="用户头像修改"  target="iframe1" enctype="multipart/form-data">
+            <iframe id="iframe1" name="iframe1" style="display:none;"></iframe>
+            <dt>上传头像：<input id="file_upload" name="photo" type="file" /> <span>建议大小120x120</span></dt>
+            <dt>使用头像：<br> <img class="sctx" width="120" height="120" src="{{$home_info['photo']}}" id="member_head"></dt>
+            <dt><input class="vote_bnt" value="保存" type="submit" /></dt>
+             </form>
+        </div>
+    </div>
+    <div class="member_right">
+        <div class="member_right_ad">300x250广告</div>
+    </div>
+</div>

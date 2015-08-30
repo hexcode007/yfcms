@@ -1,0 +1,17 @@
+<ul class="left">
+    <li class="in"><input id="username" class="logininputanew" value="请输入用户名" onblur="if (!this.value) {
+                            this.value = '请输入用户名';
+                            this.style.color = '#b2b2b2';
+                        }" onfocus="if (this.value == '请输入用户名')
+                                    this.value = '';
+                                this.style.color = '#272727'" type="text"></li>
+    <li class="in"><input id="password" class="logininputanew" value="请输入密码" onblur="if (!this.value) {
+                            this.value = '请输入密码';
+                            this.style.color = '#b2b2b2';
+                        }" onfocus="if (this.value == '请输入密码')
+                                    this.value = '';
+                                this.style.color = '#272727'" type="password"></li>
+</ul>
+<ul class="right">
+    <li class="btn"><img src="{{$static_url}}images/login-btn.png" onclick="login()"></li>
+</ul>

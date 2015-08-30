@@ -1,0 +1,18 @@
+<div class=" sidebar">
+    {{if $menus}}
+    <ul class="sidebar_inner">
+        {{foreach from=$menus item=m}}
+        <li>
+            <span> <s class="icon  icon_card menu_{{$m.menu_id}}"></s> <strong>{{$m.menu_name}}</strong> </span>
+            {{if $m.moudles}}
+            <ul>
+                {{foreach from=$m.moudles item=d}}
+                <li><a href="{{$d.moudle_url}}">{{$d.moudle_name}}</a></li>
+                {{/foreach}}
+            </ul>
+            {{/if}}
+        </li>
+        {{/foreach}}
+    </ul>
+    {{/if}}
+</div>

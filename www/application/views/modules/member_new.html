@@ -1,0 +1,5 @@
+<ul>
+    {{foreach from=$member_new item=mt}}
+    <li><a href="#{{$mt.id}}"><img src="{{$mt.photo}}"><br>{{$mt.truename}}</a></li>
+    {{/foreach}}
+</ul>

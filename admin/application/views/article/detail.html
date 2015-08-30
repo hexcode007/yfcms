@@ -1,0 +1,55 @@
+<div class="maininner">
+    <ul class="nav nav-tabs" id="myTab">
+        <li><a href="/article/" > 文章列表 </a></li>
+        <li  class="active"><a href="#profile" data-toggle="tab">文章详情</a></li>
+    </ul>
+    <form id="form1" action="" method="post" form_tittle="保存文章信息" onsubmit="return false"  >
+        <table class='edittable'>
+            <tr>
+                <td align="right" width="126">
+                    文章标题:
+                </td>
+                <td>
+                    <input type="text" class="form-control" required=true info="文章标题" id="title" name="title" value="{{$article.title}}" /> 
+                </td>
+            </tr>
+            <tr>
+                <td align="right" width="126">
+                    分类:
+                </td>
+                <td>
+                     <select  class="form-control input-sm" name="catId" id="catId"> 
+                            <option value=''>--请选择积分类型--</option> 
+                            {{html_options options=$article_type selected={{$article.catId}} }}
+                        </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" width="126">
+                    文章内容:
+                </td>
+                <td>
+                    <textarea type="text" class="form-control" required="true" info="文章内容" id="content" name="content" cols ="100" rows="10">
+                        {{$article.content}}
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" > </td>
+                <td style=" padding-left:3px; padding-top:20px;">
+                    <div class=" innerdiv"> 
+                        <input type="hidden" name="act" value="edit" />
+                        <input type="hidden" name="id" value="{{$article.id}}" />
+                        <button type="button" id="saveButton" class="btn btn-primary">修 改</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+</div>
+
+<script>
+
+</script>

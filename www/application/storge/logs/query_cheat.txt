@@ -1,0 +1,36 @@
+select id,truename,username,totalScore,photoId from members order by totalScore desc limit 6
+select fileName from photos where photoId=:photoId
+select count(0) from push_file where memberId='1'
+select count(0) from report_domains where memberId='1'
+select count(0) from push_file where memberId='7'
+select count(0) from report_domains where memberId='7'
+select count(0) from push_file where memberId='6'
+select count(0) from report_domains where memberId='6'
+select count(0) from push_file where memberId='4'
+select count(0) from report_domains where memberId='4'
+select count(0) from push_file where memberId='19'
+select count(0) from report_domains where memberId='19'
+select count(0) from push_file where memberId='17'
+select count(0) from report_domains where memberId='17'
+select id,truename,username,totalScore,photoId from members order by id desc limit 12
+select fileName from photos where photoId=:photoId
+select id,memberId,siteUrl,createTime,score,isAudit from report_domains  order by id desc limit 10
+select count(*) from report_domains where siteUrl='www.baidu.com'
+select count(*) from report_domains where siteUrl='www.baidu.com'
+select count(*) from report_domains where siteUrl='www.baidu.com'
+select count(*) from report_domains where siteUrl='www.ggg.com'
+select count(*) from report_domains where siteUrl='www.g1.cn'
+select count(*) from report_domains where siteUrl='www.baidu.com'
+select count(*) from report_domains where siteUrl='www.baidu.com'
+select id,memberId,isAnalyze,createTime,isAudit,score,star0,star1,star2,star3,star4,star5 from push_file  order by id desc limit 10
+select username,truename,id,photoId from members  where id in(1,17,7)
+select fileName from photos where photoId=:photoId
+select fileName from photos where photoId=:photoId
+select fileName from photos where photoId=:photoId
+select fileName from photos where photoId=:photoId
+select fileName from photos where photoId=:photoId
+select fileName from photos where photoId=:photoId
+select count(*) from report_domains group by siteUrl
+select count(*) from domains_analyze
+select count(*) from members
+select * from product_cats order by parentId,sortId

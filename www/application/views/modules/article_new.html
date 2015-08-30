@@ -1,0 +1,5 @@
+<ul>
+    {{foreach from=$article_recommen item=ar}}
+	    <li><span>感谢 <b>{{$ar.memberName}}</b> 投稿，系统奖励其 <b>{{$ar.score}}</b> 积分</span><a href="#">{{$ar.title}}</a></li>
+	{{/foreach}}
+</ul>

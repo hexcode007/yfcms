@@ -1,0 +1,249 @@
+<div class="maininner">
+    <div class="search_formwrap">
+        <h5 class="maintt clearfix"> <s></s> <strong> 会员列表 </strong>
+        </h5>
+        <table class="search_form">
+            <form method="get" id="form_company" name=""  action="{{$cur_url}}" >
+                <tr>
+                    <td width=180>
+                        产品大类:
+                        <select  class="form-control input-sm" name="productCatId" id="productCat"> 
+                        <option value=''>--请选择所属行业--</option> 
+                        </select>
+                    </td>
+                    <td width=200>
+                        <select  class="form-control input-sm" name="productCatId2" id="productCat2"> 
+                        <option value=''>--请选择产品分类--</option> 
+                        </select>
+                    </td>
+                    <td width=250>
+                        会员名称:
+                        <input value="" name="siteurl" type="text" class="form-control"  />
+                    </td>
+                    <td>
+                        <button class="btn btn-default btn-sm" type="submit" >筛选</button>
+                        <a class="widthm vm" onclick="clear_all()">清空</a>
+                    </td>
+                    <td colspan=4></td>
+                </tr>
+            </form>
+
+        </table>
+    </div>
+
+    <table class="table table-striped table-hover ">
+        <tr>
+            <th style="width:120px">会员账号</th>
+            <th style="width:80px">真实姓名</th>
+            <th style="width:120px">产品分类</th>
+            <th style="width:120px">联系方式</th>
+            <th style="width:100px">QQ/微信</th>
+            <th style="min-width:50px">积分</th>
+            <th style="min-width:50px">创建时间</th>
+            <th style="min-width:60px">操作</th>
+        </tr>
+        {{foreach item=ml from=$member_list}}
+        <tr data-id="{{$ml.id}}">
+            <td align="center">{{$ml.username}}</td>
+            <td align="center">{{$ml.truename}}</td>
+            <td align="center">{{$product_cat2[$ml.productCatId]}}<br>{{$product_cat2[$ml.productCatId2]}}</td>
+            <td align="left">M：{{$ml.mobile}}<br>E：{{$ml.email}}</td>
+            <td align="left">Q：{{$ml.qq}}<br>W：{{$ml.weixin}}</td>
+            <td align="center">{{$ml.totalScore}}</td>
+            <td align="center">{{$ml.createTime|date_format:"%Y/%m/%d %H:%M"}}</td>
+            <td align="center">
+                <a class="editBtn"  href="javascript:;">修改</a>
+            </td>
+        </tr>
+        {{/foreach}}
+    </table>
+     <div class="modal fade" id="commonmodal">
+        <div class="modal-dialog" style=" width:500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h5 class="modal-title" id="addnewLabel"> 暂停/启用用户 </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="edittable"> 
+                        <p class="errortips"> <em class=" icon icon_tips"> </em><span></span></p>
+                        <form id="form1" action="" method="post" form_tittle="修改用户信息" onsubmit="return false"  >
+                        <table>
+                            <tr>
+                                <td align="right" width="126">
+                                    用户账号:
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="" required=true info="用户账号" id="username" name="username"  readonly /> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="126">
+                                    真实姓名:
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="" required=true info="真实姓名" id="truename" name="truename" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="126">
+                                    手机号码:
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="" required=true info="手机号码" id="mobile" name="mobile" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="126">
+                                    QQ:
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="" required=true info="QQ" id="qq" name="qq" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="126">
+                                    微信:
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="" required=true info="微信" id="weixin" name="weixin" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="126">
+                                    Email:
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="" required=true info="email" id="email" name="email" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="126">
+                                    积分:
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="" required=true info="积分" id="totalScore" name="totalScore" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="126">
+                                    产品大类:
+                                </td>
+                                <td>
+                                    <select  class="form-control input-sm" name="productCatId" required="true" info="产品大类"> 
+                                    <option value=''>--请选择所属行业--</option> 
+                                    </select>
+                                </td>
+                            <tr>
+                                <td align="right" width="126">
+                                    产品小类:
+                                </td>
+                                <td>
+                                    <select  class="form-control input-sm" name="productCatId2" required="true" info="产品小类" > 
+                                    <option value=''>--请选择产品分类--</option> 
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="126">
+                                    自定义类:
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="" id="defineCatName" name="defineCatName" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="126">
+                                    修改状态:
+                                </td>
+                                <td>
+                                    <select class="form-control input-sm" name="status">
+                                        <option value='1'>启用</option>
+                                        <option value='2'>停用</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="126">
+                                    填写原因:
+                                </td>
+                                <td>
+                                    <textarea class='form-control input-sm' name='reason' id='reason' cols="50" rows="3"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" > </td>
+                                <td style=" padding-left:3px; padding-top:20px;">
+                                    <div class=" innerdiv"> 
+                                        <input type="hidden" name="act" value="" />
+                                        <input type="hidden" name="id" value="" />
+                                        <button type="button" id="saveButton" class="btn btn-primary">确 认</button>
+                                        <button type="button" class="btn btn-default widthl2" data-dismiss="modal">取 消</button> 
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        </form>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    {{$page}}
+
+</div>
+
+<script>
+    var catstr = {{$product_cat}};
+    setProductCat(catstr,'#productCat',{{$params.productCatId|default:0}},'#productCat2',{{$params.productCatId2|default:0}});
+    function initModal() {
+        $("#commonmodal").find("form")[0].reset();
+    }
+    $(function(){
+        $(".editBtn").click(function(){
+            initModal();
+            var member_id = $(this).parent("td").parent("tr").data('id');
+            $("#commonmodal input[name=id]").val(member_id);
+            $("#commonmodal").smodal({title:"修改用户状态",act:'edit'});
+            $.request({
+                data: "",
+                url: "/members/edit/"+member_id,
+                callback: function(msg) {
+                    if (msg.status == 0) {
+                        $("input[name=truename]").val(msg.data.truename);
+                        $("input[name=username]").val(msg.data.username);
+                        $("input[name=mobile]").val(msg.data.mobile);
+                        $("input[name=qq]").val(msg.data.qq);
+                        $("input[name=weixin]").val(msg.data.weixin);
+                        $("input[name=email]").val(msg.data.email);
+                        $("input[name=totalScore]").val(msg.data.totalScore);
+                        $("textarea[name=reason]").html(msg.data.reason);
+                        $("select[name=status]").val(msg.data.status);
+                        $("input[name=defineCatName]").val(msg.data.defineCatName);
+                        setProductCat(catstr,'.edittable select[name=productCatId]',msg.data.productCatId,'.edittable select[name=productCatId2]',msg.data.productCatId2);
+                    }
+                    return false;
+                }
+            });
+        });
+
+        //提交修改
+        $("#saveButton").click(function(){
+            _do = $("#form1").find("input[name=act]").val();
+            if(_do == 'edit'){
+                $("#form1").ajaxSubmit({
+                    "url":"/members/editSave/",
+                    "callback":function(msg){
+                        if(msg.status==0){
+                            $("#auditmodal").modal("hide");
+                            $.successModal("修改用户状态成功","");
+                        }else{
+                            $.error(msg.info);
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

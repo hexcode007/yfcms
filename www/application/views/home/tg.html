@@ -1,0 +1,41 @@
+<div class="zuobi">
+    <a href="#">云扫除</a> > <a href="#">会员中心</a></span>
+</div>
+
+<!----------member---------->
+<div class="member">
+    <div class="member_left">
+        {{include file="modules/home_top.html"}}
+        <div class="member_left_tg">
+            <form action="/home/tgSave/" method="post" onsubmit="" id="form_tg" form_tittle="投稿">
+                <dt>文章标题：<input size="50" id="t0" name="title" type="text" class="input" maxlength="50" notnull="true" rule="/^[\S][\s\S]{5,49}$/" info="文章标题"/> <span>6-50个字符</span></dt>
+                <dt>文章作者：<input size="20" id="t1" name="author" type="text" class="input" maxlength="10" value="{{$member_info['username']}}" notnull="true" rule="/^[\S][\s\S]{1,9}$/" info="文章作者" /> <span>2-10个字符</span></dt>
+                <dt>所属栏目：<select class="item-blur" id="catId" name="catId" notnull="true" info="所属栏目">
+                            <option value=''>--请选择所属栏目--</option>
+                            {{html_options options=$artice_cats selected=0}}
+                        </select><span> 必选</span></dt>
+                <dt>文章内容： <span>最少50个汉字</span><br><textarea id="content" name="content" class="inputs" notnull="true" rule="/^[\S][\s\S]{50,}$/" info="文章内容"></textarea></dt>
+                <dt>验证码：<input id="yzm" size="6" name="yzm" type="text"  class="input" maxlength="4"   notnull="true" rule="/^[0-9a-zA-Z]{4}$/" info="验证码"/><img align="absmiddle" src="/yzm.php" height="25" width="55" onClick="this.src='/yzm.php?' + Math.random();" /></dt>
+                <dt><input class="vote_bnt" value="投稿" type="button" id="saveBtn" /></dt>
+            </form>
+
+        </div>
+    </div>
+    {{include file="modules/home_ad.html"}}
+</div>
+<script type="text/javascript">
+$(function(){
+    $("#saveBtn").click(function(){
+        $("#form_tg").ajaxSubmit({
+            callback:function(msg){
+                if(msg.status==0){
+                    alert("投稿成功,审核通过后,积分将送至您的账户");
+                    location.reload(false);
+                }else{
+                    alert(msg.info);
+                }
+            }
+        });
+    });
+})
+</script>

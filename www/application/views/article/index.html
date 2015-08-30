@@ -1,0 +1,45 @@
+<div class="zuobi">
+    <a href="/">云扫除</a> > <a href="/analyze/">数据分析</a> 
+</div>
+
+<div class="list">
+
+    <div class="list_left">
+
+        <div class="list_left_news">
+            <ul>
+                {{foreach from=$list item=l}}
+                <li><span>感谢 <b>{{$l.author}}</b> 投稿，奖 <b>{{$l.score}}</b> 分</span><a href="/article/{{$l.id}}.html">{{$l.title}}</a></li>
+                {{/foreach}}
+            </ul>
+        </div>
+        <div class="list_left_page">
+            {{$pagestr}}
+        </div>
+    </div>
+
+    <div class="list_right">
+
+        <div class="login_right">
+            <div class="login_right_top">
+                {{include file="modules/login.html"}}
+            </div>
+            <div class="login_right_cer"><img src="{{$static_url}}images/01.gif"></div>
+            <div class="login_right_bot"><b>云扫除能为您做什么？</b><br>云扫除是收集网上所有关于作弊百度联盟的网站，网盟推广用户可以批量提交作弊网址;云扫除还可以为您批量分析您网盟推广里面的网址效果如何，给您分析出来建议您屏蔽的网址！</div>
+        </div>
+
+        <div class="main_right_top">活跃排行榜</div>
+        <div class="main_right_tline"></div>
+        <div class="main_right_name">
+            {{include file="modules/member_top.html"}}
+        </div>
+        <div class="main_right_bline"></div>
+
+        <div class="main_right_top">最新注册用户</div>
+        <div class="main_right_tline"></div>
+        <div class="main_right_new">
+            {{include file="modules/member_new.html"}}
+        </div>
+        <div class="main_right_bline"></div>
+    </div>
+</div>

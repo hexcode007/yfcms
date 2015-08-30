@@ -1,0 +1,10 @@
+<ul>
+
+    {{foreach from=$member_top item=mt}}
+    <li>
+    <dd class="left"><img src="{{$mt.photo}}"></dd>
+    <dd class="tit"><span>{{$mt.totalScore}}分</span><a href="#">{{$mt.truename}}</a></dd>
+    <dd class="dec">查询分析：{{$mt.push_count}}次，举报作弊：{{$mt.report_count}}个网站</dd>
+    </li>
+    {{/foreach}}
+</ul>

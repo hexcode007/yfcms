@@ -1,0 +1,30 @@
+<div class="top">
+    <div class="top_top">
+        <ul>
+            <li class="left">{{if isset($member_info['id'])}}{{if $member_info['truename']}}{{$member_info['truename']}}{{else}}{{$member_info['username']}}{{/if}}您好，欢迎来到云扫除&nbsp;<a href='/home/'>个人中心</a>&nbsp;<a href='javascript:;' onclick='loginout()'>注销</a>
+                {{else}}您好，欢迎来到云扫除&nbsp;<a href="/login.html">请登录</a>{{/if}}
+            </li>
+            <li class="right"><a href="#">一分钟了解云扫除</a></li>
+        </ul>
+    </div>
+    <div class="top2_ad"><img src="{{$static_url}}images/11.jpg" width=980 height=75 /></div>
+</div>
+
+<div class="nav">
+    <div class="nav_all">
+        <div class="nav_all_logo">LOGO</div>
+        <div class="nav_all_left">
+            <ul>
+                <li class="{{if isset($channel) && $channel=="index" }}on{{/if}}" ><a href="/">网站首页</a></li>
+                <li class="{{if isset($channel) && $channel=="cheat" }}on{{/if}}"><a href="/cheat/">作弊网站</a></li>
+                <li class="{{if isset($channel) && $channel=="article" }}on{{/if}}"><a href="/article/">老生常谈</a></li>
+                <li class="{{if isset($channel) && $channel=="home" }}on{{/if}}"><a href="/home/">会员中心</a></li>
+            </ul>
+        </div>
+        <div class="nav_all_right">
+            <ul>
+                <li><a href="/analyze/">数据分析</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
